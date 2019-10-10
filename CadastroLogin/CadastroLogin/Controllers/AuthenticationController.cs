@@ -45,5 +45,11 @@ namespace CadastroLogin.Controllers
             return RedirectToAction("Index", "Home");
             
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
     }
 }
