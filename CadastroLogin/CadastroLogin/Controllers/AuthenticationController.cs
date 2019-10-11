@@ -51,5 +51,24 @@ namespace CadastroLogin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Login(Login loginUser)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(loginUser);
+            }
+
+
+            //METODO ERRADO, UTILIZAR LISTAS PARA TRAZER RESULTADOS
+            //if (CommandsSQL.LoginValidate(loginUser) == null)
+            //{
+            //    ModelState.AddModelError("User", "Usuário ou senha inválidos");
+            //    return View(loginUser);
+            //}
+
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

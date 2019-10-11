@@ -31,9 +31,23 @@ namespace CadastroLogin.Database
             Command.ExecuteNonQuery();
         }
 
+        //ERRADO TAMBÉM
+        public void ReturnCommand(string StrQuery)
+        {
+            var Command = new SqlCommand
+            {
+                CommandText = StrQuery,
+                CommandType = CommandType.Text,
+                Connection = connection
+               
+            };
+            Command.ExecuteReader();
+        }
+
+
         public void Dispose()
         {
-
+           connection.Close();
         }
     }
 }
