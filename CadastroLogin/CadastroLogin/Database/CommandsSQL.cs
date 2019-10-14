@@ -51,37 +51,5 @@ namespace CadastroLogin.Database
         }
 
 
-
-<<<<<<< HEAD
-        public List<User> Listar()
-        {
-            var db = new DBConnection();
-            var strQuery = "SELECT * FROM tbUsuario;";
-            var retorno = db.RetornaComando(strQuery);
-            return ListaDeUsuario(retorno);
-        }
-
-        public List<User> ListaDeUsuario(SqlDataReader retorno)
-        {
-            var usuarios = new List<User>();
-
-            while (retorno.Read())
-            {
-                var TempUsuario = new User()
-                {
-                    Login = retorno["Login_user"].ToString(),
-                    Password = retorno["Password_user"].ToString(),
-
-                };
-                usuarios.Add(TempUsuario);
-            }
-            retorno.Close();
-            return usuarios;
-        }
-
-
-=======
->>>>>>> 7a429bc8fcde82a01bb570d9298dffb61d150209
-
     }
 }
