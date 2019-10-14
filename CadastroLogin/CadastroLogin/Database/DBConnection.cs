@@ -32,13 +32,21 @@ namespace CadastroLogin.Database
         }
 
 
+<<<<<<< HEAD
         public SqlDataReader RetornaComando(string Strquery)
         {
             var comando = new SqlCommand(Strquery, connection);
             return comando.ExecuteReader();
 
         }
+=======
+        public SqlDataReader ReturnCommand(string Strquery)
+        {
+            var comando = new SqlCommand(Strquery, connection);
+            return comando.ExecuteReader();
+>>>>>>> 7a429bc8fcde82a01bb570d9298dffb61d150209
 
+        }
 
         public void Dispose()
         {

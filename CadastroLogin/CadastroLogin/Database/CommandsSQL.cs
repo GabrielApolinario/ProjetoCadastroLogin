@@ -23,7 +23,36 @@ namespace CadastroLogin.Database
             }
         }
 
+        //TESTAR ESSE METODO
+        public List<User>Listar()
+        {
+            var db = new DBConnection();
+            var strQuery = "SELECT * FROM tb_user;";
+            var retorno = db.ReturnCommand(strQuery);
+            return ListaDeUsuario(retorno);
+        }
 
+        public List<User> ListaDeUsuario(SqlDataReader retorno)
+        {
+            var usuarios = new List<User>();
+
+            while (retorno.Read())
+            {
+                var TempUsuario = new User()
+                {
+                    Login = retorno["Login"].ToString(),
+                    Password = retorno["Password"].ToString(),
+
+                };
+                usuarios.Add(TempUsuario);
+            }
+            retorno.Close();
+            return usuarios;
+        }
+
+
+
+<<<<<<< HEAD
         public List<User> Listar()
         {
             var db = new DBConnection();
@@ -51,6 +80,8 @@ namespace CadastroLogin.Database
         }
 
 
+=======
+>>>>>>> 7a429bc8fcde82a01bb570d9298dffb61d150209
 
     }
 }

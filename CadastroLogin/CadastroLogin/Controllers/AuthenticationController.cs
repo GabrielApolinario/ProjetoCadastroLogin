@@ -30,8 +30,6 @@ namespace CadastroLogin.Controllers
                 return View(user);
             }
             
-            //Criar tratamento para usuarios que ja existem
-
             User usuario = new User
             {
 
@@ -62,11 +60,21 @@ namespace CadastroLogin.Controllers
             }
 
 
+<<<<<<< HEAD
             //NÃO SEI O QUE RETORNAR E COMO RETORNAR
             if(CommandsSQL.ListaDeUsuario() == null)
             {
 
             }
+=======
+            //METODO ERRADO, UTILIZAR LISTAS PARA TRAZER RESULTADOS
+
+            //if (CommandsSQL.LoginValidate(loginUser) == null)
+            //{
+            //    ModelState.AddModelError("User", "Usuário ou senha inválidos");
+            //    return View(loginUser);
+            //}
+>>>>>>> 7a429bc8fcde82a01bb570d9298dffb61d150209
 
             return RedirectToAction("Index", "Home");
         }
