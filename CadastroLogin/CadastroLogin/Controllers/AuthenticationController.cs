@@ -28,8 +28,6 @@ namespace CadastroLogin.Controllers
                 return View(user);
             }
             
-            //Criar tratamento para usuarios que ja existem
-
             User usuario = new User
             {
 
@@ -61,6 +59,7 @@ namespace CadastroLogin.Controllers
 
 
             //METODO ERRADO, UTILIZAR LISTAS PARA TRAZER RESULTADOS
+
             //if (CommandsSQL.LoginValidate(loginUser) == null)
             //{
             //    ModelState.AddModelError("User", "Usuário ou senha inválidos");
