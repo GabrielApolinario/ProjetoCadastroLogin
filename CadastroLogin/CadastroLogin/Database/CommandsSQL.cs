@@ -24,34 +24,33 @@ namespace CadastroLogin.Database
         }
 
 
-        //METODO ERRADO, UTILIZAR LISTA PARA TRAZER RESULTADOS
-        //public  SqlDataReader CheckLogin(Login loginUser)
-        //{
- 
-        //    var StrQuery = "";
-        //    StrQuery += "SELECT login_user, password_user FROM tb_user ";
-        //    StrQuery += string.Format("WHERE login_user = '{0}' AND password_user = '{1}'", loginUser.User, loginUser.Password);
+        public List<User> Listar()
+        {
+            var db = new DBConnection();
+            var strQuery = "SELECT * FROM tbUsuario;";
+            var retorno = db.RetornaComando(strQuery);
+            return ListaDeUsuario(retorno);
+        }
 
-        //    using (db = new DBConnection())
-        //    {
-        //        db.ReturnCommand(StrQuery);
-        //    }
-        //}
+        public List<User> ListaDeUsuario(SqlDataReader retorno)
+        {
+            var usuarios = new List<User>();
 
-        //public List<Login> LoginValidate(Login loginUser)
-        //{
-        //    var strQuery = "SELECT login_user, password_user FROM tb_user ";
-        //    strQuery += string.Format("WHERE login_user = '{0}' AND password_user = '{1}'", loginUser.User, loginUser.Password);
-        //    List<Login> logins = new List<Login>();
+            while (retorno.Read())
+            {
+                var TempUsuario = new User()
+                {
+                    Login = retorno["Login_user"].ToString(),
+                    Password = retorno["Password_user"].ToString(),
 
-        //    db.ReturnCommand(strQuery);
+                };
+                usuarios.Add(TempUsuario);
+            }
+            retorno.Close();
+            return usuarios;
+        }
 
 
-        //    return logins;
-        //}
-           
-        
-        
 
     }
 }

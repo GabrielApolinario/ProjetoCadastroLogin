@@ -14,6 +14,8 @@ namespace CadastroLogin.Controllers
         CommandsSQL CommandsSQL = new CommandsSQL();
         DBConnection DBConnection = new DBConnection();
         User user = new User();
+        
+
         // GET: Authentication
         public ActionResult Cadastro()
         {
@@ -60,12 +62,11 @@ namespace CadastroLogin.Controllers
             }
 
 
-            //METODO ERRADO, UTILIZAR LISTAS PARA TRAZER RESULTADOS
-            //if (CommandsSQL.LoginValidate(loginUser) == null)
-            //{
-            //    ModelState.AddModelError("User", "Usuário ou senha inválidos");
-            //    return View(loginUser);
-            //}
+            //NÃO SEI O QUE RETORNAR E COMO RETORNAR
+            if(CommandsSQL.ListaDeUsuario() == null)
+            {
+
+            }
 
             return RedirectToAction("Index", "Home");
         }
