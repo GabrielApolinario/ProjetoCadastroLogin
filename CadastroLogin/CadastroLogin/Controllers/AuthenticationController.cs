@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CadastroLogin.Models;
 using System.Data.SqlClient;
 using CadastroLogin.Database;
+using CadastroLogin.Utils;
 
 namespace CadastroLogin.Controllers
 {
@@ -30,14 +31,15 @@ namespace CadastroLogin.Controllers
                 return View(user);
             }
             
+            //Criar tratamento para usuarios que ja existem
+
             User usuario = new User
             {
 
                 Name = user.Name,
                 Email = user.Email,
                 Login = user.Login,
-                Password = user.Password
-
+                Password = Hash.GerarHash(user.Password)
             };
 
             CommandsSQL.Insert(user);
@@ -59,24 +61,7 @@ namespace CadastroLogin.Controllers
                 return View(loginUser);
             }
 
-
-<<<<<<< HEAD
-            //NÃO SEI O QUE RETORNAR E COMO RETORNAR
-            if(CommandsSQL.ListaDeUsuario() == null)
-            {
-
-            }
-=======
-            //METODO ERRADO, UTILIZAR LISTAS PARA TRAZER RESULTADOS
-
-            //if (CommandsSQL.LoginValidate(loginUser) == null)
-            //{
-            //    ModelState.AddModelError("User", "Usuário ou senha inválidos");
-            //    return View(loginUser);
-            //}
->>>>>>> 7a429bc8fcde82a01bb570d9298dffb61d150209
-
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
     }

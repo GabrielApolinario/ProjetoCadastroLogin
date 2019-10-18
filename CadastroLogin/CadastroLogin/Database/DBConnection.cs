@@ -32,7 +32,6 @@ namespace CadastroLogin.Database
         }
 
 
-
         public SqlDataReader RetornaComando(string Strquery)
         {
             var comando = new SqlCommand(Strquery, connection);

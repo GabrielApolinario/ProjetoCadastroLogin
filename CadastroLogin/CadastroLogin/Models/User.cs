@@ -20,12 +20,14 @@ namespace CadastroLogin.Models
         public string Login { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
+        [DataType(DataType.Password)]
         [MinLength(6, ErrorMessage = "Sua senha deve conter no mínimo 6 caracteres")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
+        [DataType(DataType.Password)]
         [MinLength(6, ErrorMessage = "Sua senha deve conter no mínimo 6 caracteres")]
-        [Compare("Password", ErrorMessage ="Suas senhas devem ser iguais")]
+        [Compare(nameof(Password), ErrorMessage ="Suas senhas devem ser iguais")]
         public string ConfirmPassword { get; set; }
     }
 }
