@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CadastroLogin.Models.User>
+
+@{
+    ViewBag.Title = "ListarAlunos";
+}
+
+<h2 class="mt-5 text-center">ALUNOS CADASTRADOS</h2>
+<br/>
+<table class="table">
+    <tr>
+        <th>
+            <b>ID</b>
+            @*@Html.DisplayNameFor(model => model.ID)*@
+        </th>
+        <th>
+            <b>Nome</b>
+            @*@Html.DisplayNameFor(model => model.Name)*@
+        </th>
+        <th>
+            <b>Usuario</b>
+            @*@Html.DisplayNameFor(model => model.Login)*@
+        </th>
+        @*<th>
+            <b>Senha</b>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>*@
+
+        <th>
+           <b>Opções</b>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Login)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>*@
+
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalhes", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Remover", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

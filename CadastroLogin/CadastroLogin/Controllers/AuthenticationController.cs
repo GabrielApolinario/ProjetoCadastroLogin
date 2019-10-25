@@ -61,7 +61,7 @@ namespace CadastroLogin.Controllers
                 return View(loginUser);
             }
 
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
     }

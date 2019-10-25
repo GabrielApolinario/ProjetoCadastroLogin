@@ -28,7 +28,7 @@ namespace CadastroLogin.Database
         public List<User> Listar()
         {
             var db = new DBConnection();
-            var strQuery = "SELECT * FROM tbUsuario;";
+            var strQuery = "SELECT * FROM tb_User;";
             var retorno = db.RetornaComando(strQuery);
             return ListaDeUsuario(retorno);
         }
@@ -41,9 +41,10 @@ namespace CadastroLogin.Database
             {
                 var TempUsuario = new User()
                 {
+                    ID = retorno["Id_User"].ToString(),
+                    Name = retorno["Name_User"].ToString(),
                     Login = retorno["Login_user"].ToString(),
-                    Password = retorno["Password_user"].ToString(),
-
+                    Password = retorno["Password_user"].ToString()
                 };
                 usuarios.Add(TempUsuario);
             }
