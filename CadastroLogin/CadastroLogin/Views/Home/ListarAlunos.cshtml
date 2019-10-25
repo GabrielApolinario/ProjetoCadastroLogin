@@ -8,15 +8,15 @@
 <br/>
 <table class="table">
     <tr>
-        <th>
+        <th class="text-left">
             <b>ID</b>
             @*@Html.DisplayNameFor(model => model.ID)*@
         </th>
-        <th>
+        <th class="text-center">
             <b>Nome</b>
             @*@Html.DisplayNameFor(model => model.Name)*@
         </th>
-        <th>
+        <th class="text-center">
             <b>Usuario</b>
             @*@Html.DisplayNameFor(model => model.Login)*@
         </th>
@@ -25,30 +25,37 @@
             @Html.DisplayNameFor(model => model.Password)
         </th>*@
 
-        <th>
+        <th class="text-center">
            <b>Opções</b>
+        </th>
+
+        <th class="text-center">
+            <b>Tipo de usuário</b>
         </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td class="text-left">
             @Html.DisplayFor(modelItem => item.ID)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.Login)
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.Password)
         </td>*@
 
-        <td>
+        <td class="text-center">
             @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Detalhes", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Remover", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.UserType)
         </td>
     </tr>
 }

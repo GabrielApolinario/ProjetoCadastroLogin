@@ -8,6 +8,7 @@ namespace CadastroLogin.Models
 {
     public class User
     {
+        public string UserType { get; set; } 
 
         public string ID { get; set; }
        

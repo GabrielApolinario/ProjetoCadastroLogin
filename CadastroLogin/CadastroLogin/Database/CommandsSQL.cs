@@ -44,7 +44,9 @@ namespace CadastroLogin.Database
                     ID = retorno["Id_User"].ToString(),
                     Name = retorno["Name_User"].ToString(),
                     Login = retorno["Login_user"].ToString(),
-                    Password = retorno["Password_user"].ToString()
+                    Password = retorno["Password_user"].ToString(),
+                    UserType = retorno["User_Type"].ToString()
+                    
                 };
                 usuarios.Add(TempUsuario);
             }
